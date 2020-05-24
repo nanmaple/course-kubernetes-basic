@@ -1,1 +1,1 @@
-# -course-kubernetes-basic
+# course-kubernetes-basic
