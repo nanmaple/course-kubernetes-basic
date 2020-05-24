@@ -50,6 +50,16 @@ brew cask install virtualbox virtualbox-extension-pack
 
 ## 4. Vagrant
 
+### 플러그인 설치
+```
+vagrant plugin install vagrant-hostmanager
+vagrant plugin install vagrant-disksize
+```
+
+```
+vagrant plugin list
+```
+
 ### Box 이미지 다운로드
 ```
 vagrant box add ubuntu/bionic64
@@ -78,7 +88,8 @@ Vagrant.configure("2") do |config|
       vb.memory = 4096
     end
     config.vm.hostname = "docker"
-    config.vm.network "private_network", ip: "192.168.56.10"
+    config.vm.network "private_network", ip: "192.168.56.101"
+    config.disksize.size = "50GB"
   end
 
   # Enable SSH Password Authentication
