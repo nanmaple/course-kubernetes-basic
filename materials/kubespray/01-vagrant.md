@@ -89,7 +89,7 @@ Vagrant.configure("2") do |config|
     config.vm.provider "virtualbox" do |vb|
       vb.name = "kube-master1"
       vb.cpus = 2
-      vb.memory = 3072
+      vb.memory = 2048
     end
     config.vm.hostname = "kube-master1"
     config.vm.network "private_network", ip: "192.168.56.11"
@@ -100,7 +100,7 @@ Vagrant.configure("2") do |config|
     config.vm.provider "virtualbox" do |vb|
       vb.name = "kube-node1"
       vb.cpus = 2
-      vb.memory = 3072
+      vb.memory = 2048
     end
     config.vm.hostname = "kube-node1"
     config.vm.network "private_network", ip: "192.168.56.21"
@@ -111,21 +111,10 @@ Vagrant.configure("2") do |config|
     config.vm.provider "virtualbox" do |vb|
       vb.name = "kube-node2"
       vb.cpus = 2
-      vb.memory = 3072
+      vb.memory = 2048
     end
     config.vm.hostname = "kube-node2"
     config.vm.network "private_network", ip: "192.168.56.22"
-    config.disksize.size = "30GB"
-  end
-  config.vm.define "kube-node3" do |config|
-    config.vm.box = "ubuntu/bionic64"
-    config.vm.provider "virtualbox" do |vb|
-     vb.name = "kube-node3"
-      vb.cpus = 2
-      vb.memory = 3072
-    end
-    config.vm.hostname = "kube-node3"
-    config.vm.network "private_network", ip: "192.168.56.23"
     config.disksize.size = "30GB"
   end
 
@@ -145,14 +134,12 @@ end
 
 | Master       | IP               | CPU | Memory | Disk |
 |--------------|------------------|-----|--------|------|
-| kube-master1 | 192.168.56.11/24 | 2   | 3072MB | 30G  |
+| kube-master1 | 192.168.56.11/24 | 2   | 2048MB | 30G  |
 
 | Node         | IP               | CPU | Memory | Disk |
 |--------------|------------------|-----|--------|------|
-| kube-node1   | 192.168.56.21/24 | 2   | 3072MB | 30G  |
-| kube-node2   | 192.168.56.22/24 | 2   | 3072MB | 30G  |
-| kube-node3   | 192.168.56.23/24 | 2   | 3072MB | 30G  |
-
+| kube-node1   | 192.168.56.21/24 | 2   | 2048MB | 30G  |
+| kube-node2   | 192.168.56.22/24 | 2   | 2048MB | 30G  |
 
 ### VM 배포
 ```

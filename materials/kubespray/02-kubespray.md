@@ -17,12 +17,11 @@ OS: Ubuntu 18.04.4(Bionic)
 |--------------|------------------|
 | kube-node1   | 192.168.56.21/24 |
 | kube-node2   | 192.168.56.22/24 |
-| kube-node3   | 192.168.56.23/24 |
 
 
 ## 1. Requirements
-- Ansible 2.7.16, python-netaddr
-- Jinja 2.9+
+- Ansible, python-netaddr
+- Jinja
 - 인터넷 연결(도커 이미지 가져오기)
 - IPv4 포워딩
 - SSH 키 복사
@@ -88,7 +87,6 @@ vi inventory/mycluster/inventory.ini
 kube-master1	ansible_host=192.168.56.11 ip=192.168.56.11 ansible_connection=local
 kube-node1      ansible_host=192.168.56.21 ip=192.168.56.21
 kube-node2 	    ansible_host=192.168.56.22 ip=192.168.56.22
-kube-node3 	    ansible_host=192.168.56.23 ip=192.168.56.23
 
 [all:vars]  
 ansible_python_interpreter=/usr/bin/python3
@@ -102,7 +100,6 @@ kube-master1
 [kube-node]  
 kube-node1  
 kube-node2
-kube-node3  
 
 [calico-rr]  
 
